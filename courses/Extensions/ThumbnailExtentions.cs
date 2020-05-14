@@ -42,7 +42,7 @@ namespace courses.Extensions
                     from ps in db.CourseSubscriptions
                     join p in db.Courses on ps.CourseId equals p.Id
                     join plt in db.CourseLinkTexts on p.CourseLinkTextId equals plt.Id
-                    //join pt in db.courseModules on p.CourseModuleId equals pt.Id
+                    join pt in db.courseModules on p.CourseModuleId equals pt.CourseId
                     where subscriptionIds.Contains(ps.SubscriptionId)
                     select new ThumbnailModel
                     {
